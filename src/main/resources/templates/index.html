@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>옹진군청 민원 분석</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<h1>민원분석기</h1>
+						<p>Just free<br />
+						built by <a href="https://www.naver.com">빅데이터 인턴</a>.</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">소개</a></li>
+							<li><a href="#first">분석</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div>
+									<center>
+									<h2>사용법</h2>
+									<p>민원 분석기를 사용하기 위해서는 기존 엑셀 파일을 "민원제목", "대분류", "소분류", "민원요지"를 제외하고 </p>
+									<p>다른 데이터들을 제거한 뒤에 A열 1행에 데이터들을 옮긴 뒤에 민원 분석을 시작합니다.</p>
+									</center>
+								</div>
+								<div>
+									<center>
+									<h4>기존 엑셀 파일</h4>
+									<img src="images/before.png" width="1000px"  alt="데이터 정제 전 엑셀" />
+									</center>
+								</div>
+								<div>
+									<center>
+									<h4>데이터 정제 후 엑셀 파일</h4>
+									<img src="images/after.png" height="600px" alt="데이터 정제 후 엑셀" />
+									</center>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>민원 분석기</h2>
+								</header>
+								<div th:if="${message}">
+									<h2 th:text="${message}"/>
+								</div>
+								<div>
+									<form method="POST" enctype="multipart/form-data" action="/">
+										<h5>한 개의 파일만 가능합니다.</h5>
+										<input type="file" name="file"/>
+										<input type="submit" value="분석하기"/>
+									</form>
+								</div>
+								<footer class="major">
+								</footer>
+							</section>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				function checkFileType(filePath) {
+					var fileFormat = filePath.split(".");
+					if (fileFormat.indexOf("xlsx") || fileFormat.indexOf("xls") > -1) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			</script>
+	</body>
+</html>
