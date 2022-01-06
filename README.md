@@ -33,7 +33,11 @@ Java
 
 ![og-social-java-logo](https://user-images.githubusercontent.com/62977669/148309984-d561f395-be9d-4343-9251-992e6dd43565.gif)
 
-## 5. 코드 리뷰
+## 5. 실행 화면
+
+https://youtu.be/PDtu4ADF0m0
+
+## 6. 코드 리뷰
 
 ***자바 파일 위치***
 
