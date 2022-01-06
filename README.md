@@ -223,7 +223,9 @@ public class FileSystemApplication {
 ***java FileUploadController 코드***
 
 Main controller이자 파일 업로드하도록 해주는 코드입니다.
+
 파일을 첨부하지 않고 업로드 할 경우 경고창을 띄워 파일 첨부하도록 하는 기능과 
+
 첨부한 파일이 엑셀이 아니라면 엑셀을 첨부하라는 경고창을 띄워주는 기능도 있습니다.
 
 
