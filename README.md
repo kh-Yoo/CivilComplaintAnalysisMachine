@@ -38,6 +38,7 @@ Java
 <img width="777" alt="스크린샷 2022-01-06 오전 9 46 41" src="https://user-images.githubusercontent.com/62977669/148310339-0d03d506-9058-4925-90d4-5c5f0c83db4d.png">
 
 <pre><code>
+
 package file.storage;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -130,6 +131,7 @@ public class StorageService {
 }
 
 </pre></code>
+
 <pre><code>
 
 package file;
@@ -193,6 +195,8 @@ public class FileSystemApplication {
 }
 
 </pre></code>
+
+<pre><code>
 
 package file;
 
@@ -285,6 +289,8 @@ public class FileUploadController extends Thread {
     }    
 
 }
+
+</pre></code>
 
 <pre><code>
 
