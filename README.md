@@ -145,7 +145,9 @@ public class StorageService {
 
 ***java Controller 코드***
 
+
 두 번째 코드는 FileDownloadController 코드입니다.
+
 간략하게 설명하자면 웹 페이지에서 민원을 분석 후에 Download 버튼을 누르면 "/excel/download"를 Get으로 받아서 다운로드를 하도록 해주는 역할입니다.
 
 <pre><code>
@@ -184,6 +186,7 @@ public class FileDownloadController{
 ***java FileSystmeApplication 코드***
 
 서버가 시작하면 업로드 폴더가 없다면 업로드 폴더를 생성하고 
+
 업로드 폴더에 파일이 있다면 파일을 없애는 역할입니다. 
 
 <pre><code>
@@ -321,8 +324,11 @@ public class FileUploadController extends Thread {
 </pre></code>
 
 ***Python Model 코드***
+
 2019 ~ 2020년 까지의 민원 데이터를 카테고리별로 정제한 후에
+
 "민원제목"과 "소분류" 데이터들을 불러와서 인덱싱하여 원핫벡터화를 시켜 숫자로 표현하고 model을 학습시킵니다.
+
 그 후 모델을 불러와서 모델링을 한 뒤에 "민원제목"과 "예측한 카테고리" 그리고 민원제목의 카테고리가 예측된 "모델 정확도"를 엑셀에 담아 저장하도록 합니다. 
 
 
