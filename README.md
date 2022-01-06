@@ -24,7 +24,7 @@ Visual Studio Code
 
 ![Spring-BOOT-Interview-questions-1](https://user-images.githubusercontent.com/62977669/148311178-285b494a-20e4-42be-9fdd-f38f6232a363.jpg)
 
-## 4. 사용된 언어
+## 4. 사용한 언어
 
 Python
 ![bf534326c82256e07ebcf3a115ed38f5e86a8fb61ea5db06aac1c5195b72e17db21c18b364865e765c22de9795a736590d630966d7d887a17a023fc6ce4bc7b3e6fa33322a215727df10002f4d1ae06b41cc18027fae6b6bce8187e715eed522](https://user-images.githubusercontent.com/62977669/148309905-f7dbb320-8b73-484f-98de-bc5e991ef6f1.png)
