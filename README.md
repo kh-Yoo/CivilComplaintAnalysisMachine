@@ -10,13 +10,19 @@
 
 기존에는 카테고리가 다양하지 않지만 이 프로젝트는 옹진군청만의 카테고리로 분류하는 것이 목적입니다.
 
-기존에는 없던 옹진군청만으 해양물 쓰레기 항목과 비행기에 관한 카테고리 등과 같이 추가한 것입니다.
+기존에는 없던 옹진군청만으 해양물 쓰레기 항목과 비행기에 관한 카테고리 등과 같이 추가합니다.
+
+그리고 구현은 사용자가 데이터를 정제 후에 웹 페이지로 카테고리를 사용하도록 하는 것입니다.
 
 ## 3. 개발 환경
 
 Visual Studio Code
 
 ![file_type_vscode_icon_130084](https://user-images.githubusercontent.com/62977669/148309775-42695ae9-2ad0-4c4a-9e04-024bdbc0b16a.png)
+
+**사용한 프레임 워크**
+
+![Spring-BOOT-Interview-questions-1](https://user-images.githubusercontent.com/62977669/148311178-285b494a-20e4-42be-9fdd-f38f6232a363.jpg)
 
 ## 4. 사용된 언어
 
@@ -36,6 +42,11 @@ Java
 ***build.gradle 의존성 주입***
 
 <img width="777" alt="스크린샷 2022-01-06 오전 9 46 41" src="https://user-images.githubusercontent.com/62977669/148310339-0d03d506-9058-4925-90d4-5c5f0c83db4d.png">
+
+***java Storage 코드***
+
+첫 번째 코드는 내부 db를 활용해서 업로드한 파일을 저장하도록 하는 storage에 관한 코드입니다.
+
 
 <pre><code>
 
@@ -132,6 +143,11 @@ public class StorageService {
 
 </pre></code>
 
+***java Controller 코드***
+
+두 번째 코드는 FileDownloadController 코드입니다.
+간략하게 설명하자면 웹 페이지에서 민원을 분석 후에 Download 버튼을 누르면 "/excel/download"를 Get으로 받아서 다운로드를 하도록 해주는 역할입니다.
+
 <pre><code>
 
 package file;
@@ -165,6 +181,11 @@ public class FileDownloadController{
 
 </pre></code>
 
+***java FileSystmeApplication 코드***
+
+서버가 시작하면 업로드 폴더가 없다면 업로드 폴더를 생성하고 
+업로드 폴더에 파일이 있다면 파일을 없애는 역할입니다. 
+
 <pre><code>
 
 package file;
@@ -195,6 +216,13 @@ public class FileSystemApplication {
 }
 
 </pre></code>
+
+***java FileUploadController 코드***
+
+Main controller이자 파일 업로드하도록 해주는 코드입니다.
+파일을 첨부하지 않고 업로드 할 경우 경고창을 띄워 파일 첨부하도록 하는 기능과 
+첨부한 파일이 엑셀이 아니라면 엑셀을 첨부하라는 경고창을 띄워주는 기능도 있습니다.
+
 
 <pre><code>
 
@@ -292,6 +320,12 @@ public class FileUploadController extends Thread {
 
 </pre></code>
 
+***Python Model 코드***
+2019 ~ 2020년 까지의 민원 데이터를 카테고리별로 정제한 후에
+"민원제목"과 "소분류" 데이터들을 불러와서 인덱싱하여 원핫벡터화를 시켜 숫자로 표현하고 model을 학습시킵니다.
+그 후 모델을 불러와서 모델링을 한 뒤에 "민원제목"과 "예측한 카테고리" 그리고 민원제목의 카테고리가 예측된 "모델 정확도"를 엑셀에 담아 저장하도록 합니다. 
+
+
 <pre><code>
 
 #!/usr/bin/env python
@@ -335,18 +369,7 @@ df['민원제목'] = df['민원제목'].str.replace("[^\w]", " ")
 df["민원제목"]
 
 
-# 뉴스 카테고리 데이터를 활용한다. (https://www.kaggle.com/rmisra/news-category-dataset)
-# 
-# lines=True로 주어 각 줄별로 데이터를 받아올 수 있도록 한다.
-# 
-# 우리는 headline을 기반으로 category를 분류하는 기능을 만들 것이기 때문에 그 둘만 받아온다.
-# 
 # 판다스의 factorize는 시리즈데이터를 받아 그를 기반으로 [[인덱싱데이터],[각 인덱싱의 의미]]를 반환한다. 신경망학습에 문자열데이터를 사용하기란 매우 어렵다. 따라서 인덱싱한 데이터를 사용하도록 한다. 각 인덱싱의 의미도 추후 확인을 위해 필요하므로 category_list에 따로 저장해놓는다.
-# 
-# headline에 구별이 어려운 문자(이모티콘 등)이 존재할 수 있으므로 문자열이 아닌 데이터(^\w)는 정규표현식을 활용해 공백으로 만든다.
-# 
-# 
-# 참고 링크 : https://inuplace.tistory.com/577
 
 # In[8]:
 
